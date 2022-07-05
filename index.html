@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" type="text/css">
-  <title>Awesome Books</title>
-</head>
-<body>
-  <header>
-    <div class="header">
-      <h2 class="header-title">Awesome Books</h2>
-     
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome-books</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <nav>
+          <p class="logo">AwesomeBook</p>
+          
+        </nav>
+      </header>
+      <div id="current-date"></div>
+      <div class="book-list-container">
+        <h1>Awesome books</h1>
+        <div id="book-list"></div>
+      </div>
 
-  <main>
-
-    <div>
-      <h1 id="title" class="title">All Awesome Books</h1>
-
-    </div>
-
-    <div id="list" class="list">
-      <ul id="book-list">
-      </ul>
-    </div>
-
-    <div id="form" class="form">
-      <form action="#" class="input-form" method="post">
-        <input id="bookTitle" type="text" placeholder="Title">
-        <input id="bookAuthor" type="text" placeholder="Author">
-        <button id="add-btn" type="button">Add</button>
-      </form>
-    </div>
-
-  </main>
-  
-  <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
-  <script src="main.js"></script>
-</body>
+      <div class="form-container">
+        <!-- <h1 class="add-text">Add a new book</h1> -->
+        <hr class="hr" />
+        <br />
+        <form id="book-form">
+          <input type="text" required placeholder="Title" id="title" /><br />
+          <input type="text" required placeholder="author" id="author" /><br />
+          <button id="add-button" type="submit">Add</button>
+        </form>
+      
+    <script src="main.js"></script>
+  </body>
 </html>
