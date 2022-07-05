@@ -1,68 +1,108 @@
-/* eslint-disable max-classes-per-file */
 /* eslint-disable no-use-before-define */
-
+/* eslint-disable max-classes-per-file */
 class Book {
-    constructor(title, author) {
-      this.title = title;
-      this.author = author;
-      this.id = Math.random();
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
+
+// UI Class: Handle UI Tasks
+class UI {
+  static displayBooks() {
+    const books = Store.getBooks();
+
+    books.forEach((book) => UI.addBookToList(book));
+  }
+
+  static addBookToList(book) {
+    const list = document.querySelector('#book-list');
+
+    const bookDisplay = document.createElement('div');
+    bookDisplay.className = 'bookList1';
+    bookDisplay.innerHTML = `
+        <p class="bookTitle"><b>${book.title}</b></p>
+        <p>by<span></span><b>${book.author}.</b></p>
+        <button class="delete">Remove</button>
+        `;
+
+    list.appendChild(bookDisplay);
+  }
+
+  static deleteBook(el) {
+    if (el.classList.contains('delete')) {
+      el.parentElement.remove();
     }
   }
-  
-  class Library {
-    constructor() {
-      this.data = [];
-    }
-  
-    addBook(book) {
-      this.data.push(book);
-      localStorage.setItem('library', JSON.stringify(this.data));
-      addToUI(book);
-    }
-  
-    removeBook(id) {
-      const book = document.getElementById(id);
-      book.remove();
-      this.data = this.data.filter((bookObj) => bookObj.id !== id);
-      localStorage.setItem('library', JSON.stringify(this.data));
-    }
+
+  static clearFields() {
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
   }
-  
-  const library = new Library();
-  
-  function getInput() {
-    const title = document.getElementById('bookTitle');
-    const author = document.getElementById('bookAuthor');
-    const book = new Book(title.value, author.value);
-    title.value = '';
-    author.value = '';
-    return book;
-  }
-  
-  function addToUI(bookObj) {
-    let colorClass = '';
-    if (library.data.indexOf(bookObj) % 2 !== 0) {
-      colorClass = 'light';
+}
+
+// Store Class: Handles Storage
+class Store {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
     } else {
-      colorClass = 'dark';
+      books = JSON.parse(localStorage.getItem('books'));
     }
-    const bookList = document.getElementById('book-list');
-    const book = document.createElement('LI');
-    book.classList.add('book');
-    book.classList.add(colorClass);
-    book.setAttribute('id', bookObj.id);
-    book.innerHTML = `<p><span>${bookObj.title}</span> by ${bookObj.author}</p>`;
-    const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = 'Delete';
-    deleteBtn.addEventListener('click', () => library.removeBook(bookObj.id));
-    book.appendChild(deleteBtn);
-    bookList.appendChild(book);
+
+    return books;
   }
-  
-  // Add Button
-  const addButton = document.getElementById('add-btn');
-  addButton.addEventListener('click', () => {
-    const book = getInput();
-    library.addBook(book);
-  });
-  
+
+  static addBook(book) {
+    const books = Store.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static removeBook(title) {
+    const books = Store.getBooks();
+
+    books.forEach((book, index) => {
+      if (book.title === title) {
+        books.splice(index, 1);
+      }
+    });
+
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+}
+
+// Event: Display Books
+document.addEventListener('DOMContentLoaded', UI.displayBooks);
+
+// Event: Add a Book
+document.querySelector('#book-form').addEventListener('submit', (e) => {
+  // Prevent actual submit
+  e.preventDefault();
+
+  // Get form values
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
+
+  // Instatiate book
+  const book = new Book(title, author);
+
+  // Add Book to UI
+  UI.addBookToList(book);
+
+  // Add book to store
+  Store.addBook(book);
+
+  // Clear fields
+  UI.clearFields();
+});
+
+// Event: Remove a Book
+document.querySelector('#book-list').addEventListener('click', (e) => {
+  // Remove book from UI
+  UI.deleteBook(e.target);
+
+  // Remove book from store
+  Store.removeBook(e.target.previousElementSibling.previousElementSibling.textContent);
+});
