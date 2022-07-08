@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   height: 98vh;
   font-family: Arial, Helvetica, sans-serif;
@@ -128,4 +129,15 @@ a {
 
 #form {
   margin-top: 20px;
+=======
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+}
+
+#add-button {
+  width: 50px;
+>>>>>>> 9e4007e8f7c077c528c1a7ec4262858e6f692711
 }
