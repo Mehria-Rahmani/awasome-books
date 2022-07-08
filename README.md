@@ -1,56 +1,41 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+#  Awesome Books
 
-> Description the project.
+> This project is a basic website that allows users to add books to a list. The books list is store locally. So you can close your browser and when you open it again you will still have you books list.
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS
+- JS
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
-
-
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
+[Live Demo Link]( https://mehria-rahmani.github.io/awasome-books/)
 
 
 ## Authors
 
-👤 **Author1**
+👤 **Mehria Rahmani**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/Mehria-Rahmani)
+- Twitter: [@twitterhandle](https://twitter.com/MehriaRahmani?t=QwKwWXTVBZthv4sUrOXtfQ&s=08)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mehria-rahmani-379211222)
 
-👤 **Author2**
+👤 **ChaabaneAnas**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/ChaabaneAnas)
+- Twitter: [@twitterhandle](ChaabaneAnas))
+- LinkedIn: [LinkedIn](ChaabaneAnas)
+
+
+👤 **ChaabaneAnas**
+
+- GitHub: [@githubhandle](https://github.com/Hamayoun-Ali)
+- Twitter: [@twitterhandle](Hamayoun Ali))
+- LinkedIn: [LinkedIn](Hamayoun Ali)
 
 ## 🤝 Contributing
 
